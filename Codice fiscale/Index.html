@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Generatore Codice Fiscale MVP</title>
+    
+    <!-- collego il file CSS -->
+    <link rel="stylesheet" href="style/Style.css">
+</head>
+<body>
+    <h1>Generatore Codice Fiscale</h1>
+    
+    <div class="container">
+        <!-- Input per il file dei comuni, con caricamento automatico -->
+        <label for="fileComuni" class="file-label">Carica file comuni (.txt o .csv)</label>
+        <input type="file" id="fileComuni" accept=".csv, .txt" onchange="caricaFileComuni(this)">
+        <p id="fileStatus"></p>
+
+        <!-- Campi per inserire i dati -->
+        <input type="text" id="cognome" placeholder="Cognome" required>
+        
+        <input type="text" id="nome" placeholder="Nome" required>
+        
+        <input type="text" id="dataNascita" placeholder="Data di nascita (GG/MM/AAAA)" required>
+        
+        <!-- Menu a tendina per il sesso -->
+        <select id="sesso" required>
+            <option value="" disabled selected>Sesso (M/F)</option>
+            <option value="M">M (Maschio)</option>
+            <option value="F">F (Femmina)</option>
+        </select>
+        
+        <!-- Menu a tendina per il comune di nascita -->
+        <select id="menuComuni" required disabled>
+            <option value="" disabled selected>Comune di nascita</option>
+        </select>
+        
+        <!-- Bottone che fa partire il calcolo -->
+        <button onclick="generaCodiceFiscale()">Genera</button>
+        
+        <div class="output-bar">
+            <!-- Qui appare il risultato -->
+            <input type="text" id="risultatoCF" value="Codice Fiscale qui" readonly>
+        </div>
+        
+        <p id="message"></p>
+    </div>
+    
+    <!-- collego il file JavaScript -->
+    <script src="script/Script.js"></script>
+</body>
+</html>
